@@ -1,5 +1,7 @@
 # NEU-undergraduate-thesis-LaTeX-template
-这是基于东北大学本科毕业设计论文的LATEX版本
+这是基于东北大学本科毕业设计论文的LATEX版本 效果图如下：
+![74f7763a4d833fbdec32b0a100e9e55](https://github.com/neuljh/NEU-undergraduate-thesis-LaTeX-template/assets/132900799/ab7cae34-98a8-4e87-b927-59e9604e19fa)
+
 
 # 东北大学本科生毕业设计LaTeX样张
 
