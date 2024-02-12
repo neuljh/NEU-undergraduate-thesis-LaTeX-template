@@ -1,0 +1,170 @@
+\documentclass{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 欢迎使用东北本科生毕业设计LaTeX样张。
+% 作者：赖骏鸿 2024/2/12
+% 重要：本模板按照东北大学教务处官网提供的word版样张制作，但是内容略有不同，仅供参考。
+
+% 本样张旨在帮助同学们更方便地使用LaTeX撰写毕业设计，节省繁琐的格式调整时间，更专注于论文的内容撰写。
+
+% 使用本样张，您可以轻松实现以下功能：
+% - 自动编号的章节、图表、公式
+% - 自动排版参考文献
+% - 美观的论文格式和排版效果
+% - 方便的分章编写
+
+% 此外，我们还为您提供以下LaTeX写作的小技巧：
+
+% 在正文中引用参考文献，可使用“\cite{引用的文献编号}”命令，如“\cite{Lamport1994}”
+% 分章编写可将每个章节单独存为一个.tex文件，再通过“\input{文件名}”命令引入主文件中
+% 插入图片的命令为“\includegraphics{图片文件名}”，可设置图片大小、位置等属性
+% 插入表格的命令为“\begin{table}...\end{table}”，可设置表格标题、对齐方式等属性
+% 希望这些小技巧能够帮助您更好地使用LaTeX，撰写出优秀的毕业设计。
+
+% 如果您希望学习更多LateX技巧以下是几个 LaTeX 教程网站：
+
+% Overleaf 文档：https://www.overleaf.com/learn/latex/Main_Page
+% LaTeX 教程 - LaTeX123：http://www.latex123.com/
+% LaTeX 入门 - 莫烦 Python：https://morvanzhou.github.io/tutorials/others/latex/
+% LaTeX Tutorial - Tutorialspoint：https://www.tutorialspoint.com/latex/index.htm
+% LaTeX Notes - Mathematics Department, University of Utah：http://www.math.utah.edu/~beebe/LaTeX/Notes/LaTeX.html
+% 这些网站都提供了各种程度的 LaTeX 教程和资料，包括基本语法、排版技巧、数学公式、表格、图形、参考文献等方面的内容。您可以根据自己的需要选择相应的教程网站。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 配置与格式信息
+\input{preamble}
+
+\begin{document}
+    
+    % 页眉页脚设置
+    \pagestyle{fancy}
+    \fancyhf{}
+    \lhead{\includegraphics[width=5cm]{./img/neu.png}}
+    \rhead{\hei\xiaowu\thistitle}
+    \renewcommand{\headrulewidth}{0.4pt}
+
+    \thispagestyle{fancy} % 保留页眉和页脚
+
+    % =============================东北大学本科生毕业设计（论文）书写印制规范
+    \input{chapter/Appendix}
+
+    \clearpage
+
+    % ============================= 封面 ==========================
+     \input{chapter/Cover}
+     \clearpage
+
+    % ============================= 声明 ==========================
+     \input{chapter/Statement}
+     \clearpage
+
+    % ============================= 中文摘要 ==========================
+    % \begin{center}
+    %     \vspace*{16pt} % 空一行
+    %     \hei\sanhao{\thistitle}
+    % \end{center}
+    \vspace*{14pt} % 空一行
+    \begin{center} 
+        \hei\erhao{摘要}
+        \vspace*{16pt} % 空一行
+    \end{center}
+    \input{intro/abstract-zh}
+
+
+    \clearpage
+
+    % ============================= 英文摘要 ==========================
+    \begin{center}
+        \vspace*{16pt} % 空一行
+         \textbf{\erhao ABSTRACT}
+    \end{center}
+    \vspace*{14pt} % 空一行
+    % \begin{center}
+    %     \textbf{\xiaosan ABSTRACT}
+    %     \vspace*{16pt} % 空一行
+    % \end{center}
+    \input{intro/abstract-en}
+    \clearpage
+    % ================================================================
+   
+
+    % ============================= 目录 ============================
+    \vspace*{16pt} % 空一行
+    \tableofcontents
+    % ================================================================
+
+
+    % ==========================  正文页眉页码设置  ===================
+    
+    % 页码设置
+    \clearpage % 确保在新页面开始
+    \thispagestyle{fancy}
+    \pagenumbering{arabic} % 设置页码格式为阿拉伯数字
+    \setcounter{page}{1} % 设置页码起始值为3
+
+    % 页眉页脚设置
+    \pagestyle{fancy}
+    \fancyhf{}
+    \lhead{\includegraphics[width=5cm]{./img/neu.png}}
+    \rhead{\thistitle}
+    % \cfoot{\thepage}
+    \cfoot{第 \thepage\ 页 \hspace{0.5em}\ 共 \pageref{LastPage}\ 页}
+    \renewcommand{\headrulewidth}{0.4pt}
+    % ================================================================
+    
+
+    % ==========================  正文开始  ==========================
+    \clearpage
+    \sanhaolineskip
+    \section{绪论}
+        \subsection{课题背景及目的}
+            \input{chapter/chapter1_1}
+        \subsection{国内外研究状况}
+            \subsubsection{国外研究现状}
+                \input{chapter/chapter1_2_1}
+            \subsubsection{国内研究现状}
+                \input{chapter/chapter1_2_2}
+        \subsection{本章小结}
+            \input{chapter/chapter1_3}
+        \subsection{本文的研究内容和技术路线}
+            \subsubsection{本文的研究内容}
+                \input{chapter/chapter1_4_1}
+
+    \clearpage
+    \sanhaolineskip
+    \section{相关技术介绍}
+        \subsection{技术一}
+            \input{chapter/chapter2_1}
+        \subsection{技术二}
+            \input{chapter/chapter2_2}
+    % ================================================================
+
+
+    % ==========================  参考文献  ==========================
+    \clearpage
+    \sanhaolineskip
+    \bibliography{reference}
+    \bibliographystyle{unsrt}
+    \addcontentsline{toc}{section}{参考文献}
+    % ================================================================
+
+
+    % ============================ 致谢  =============================
+    \clearpage
+    \sanhaolineskip
+    \section*{致\quad\ 谢}
+        \input{chapter/acknowledge}
+    \addcontentsline{toc}{section}{致谢}
+     % ================================================================
+     
+
+    % ============================ 附录  =============================
+    \clearpage
+    \sanhaolineskip
+    \section*{附\quad\ 录}
+        \input{chapter/Appendix_A}
+    \addcontentsline{toc}{section}{附录}
+    % ================================================================
+
+    
+\end{document}

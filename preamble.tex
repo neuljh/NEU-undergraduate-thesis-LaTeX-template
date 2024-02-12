@@ -1,0 +1,134 @@
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage[top=2.5cm, bottom=2cm, left=3cm, right=2cm]{geometry} % 页边距设定
+\usepackage{float}
+\usepackage{times} 
+\usepackage{mathptmx}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage[numbers, square, sort&compress]{natbib} % 引入natbib宏包
+
+
+
+\renewcommand{\labelenumi}{(\arabic{enumi})} % 将enumerate计数器设置为(1)、(2)、(3)...
+\setmainfont{Times New Roman}[BoldFont=Times New Roman Bold]   % 设置英文默认字体
+\setcitestyle{super} % 设置引用标注的样式为上标
+
+% ==================================== 全局变量设置 ==================================== 
+\newcommand{\thistitle}{东北大学本科生毕业设计（论文）}     % 设置文章题目
+\newcommand{\appendixtitle}{东北大学本科生毕业设计（论文）书写印制规范}
+\newcommand{\sanhaolineskip}{\vspace*{16pt}} 
+\date{}
+% ====================================================================================
+
+
+% ==================================== 字体字号设置 ==================================== 
+\setCJKmainfont{Noto Serif CJK SC} % 指定一个默认字体
+\setCJKfamilyfont{hei}{Noto Sans CJK SC} % 定义黑体字体
+\setCJKfamilyfont{song}{Noto Serif CJK SC} % 定义宋体字体
+\newcommand{\hei}{\CJKfamily{hei}} % 创建一个新的命令 \hei
+\newcommand{\song}{\CJKfamily{song}} % 创建一个新的命令 \song
+
+
+\newcommand{\yihao}{\fontsize{26pt}{36pt}\selectfont}          % 一号, 1.4 倍行距
+\newcommand{\erhao}{\fontsize{22pt}{28pt}\selectfont}          % 二号, 1.25倍行距
+\newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}         % 小二, 单倍行距
+\newcommand{\sanhao}{\fontsize{16pt}{24pt}\selectfont}         % 三号, 1.5倍行距
+\newcommand{\xiaosan}{\fontsize{15pt}{22pt}\selectfont}        % 小三, 1.5倍行距
+\newcommand{\sihao}{\fontsize{14pt}{21pt}\selectfont}          % 四号, 1.5 倍行距
+\newcommand{\banxiaosi}{\fontsize{13pt}{19.5pt}\selectfont}    % 半小四, 1.5倍行距
+\newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}         % 小四, 1.5倍行距
+\newcommand{\dawuhao}{\fontsize{11pt}{11pt}\selectfont}        % 大五号, 单倍行距
+\newcommand{\wuhao}{\fontsize{10.5pt}{15.75pt}\selectfont}     % 五号, 单倍行距
+\newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont} % 小五号, 单倍行距
+% ==================================================================================
+
+
+% ==================================== 目录格式设定 ====================================
+\usepackage{titletoc}
+% \contentsmargin{2.5em} % 设置目录和页码之间的距离
+\renewcommand{\contentsname}{\heiti\sanhao 目\quad\ 录}
+\dottedcontents{section}[1.5em]{\xiaosi\hei}{1.5em}{1pc} % 小节目录的格式
+\dottedcontents{subsection}[3.5em]{\xiaosi\song}{2em}{1pc} % 子节目录的格式
+\dottedcontents{subsubsection}[5.5em]{\xiaosi\song}{2.5em}{1pc} % 子节目录的格式
+% ====================================================================================
+
+
+% ==================================== 定义标题格式 ==================================== 
+\usepackage{titlesec}
+\titlespacing{\section}{0pt}{0pt}{\baselineskip}
+\titleformat{\section}{\centering\hei\xiaosan}{\thesection}{1em}{}
+\titleformat{\subsection}{\hei\sihao}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\hei\xiaosi}{\quad\quad\thesubsubsection}{1em}{}
+% ===================================================================================
+
+
+% ==================================== 图序和图题设置 ==================================
+\usepackage{caption}
+\usepackage{chngcntr}
+\DeclareCaptionFont{wuhaosong}{\fontsize{10.5pt}{15.75pt}\selectfont \song} % 设置字体为宋体，五号
+\captionsetup[figure]{font=wuhaosong, labelfont=wuhaosong, labelsep=quad} % 设置图题字体为宋体，五号，标号和图名之间的距离为一个空格
+\counterwithin{figure}{section} % 将图号计数器设置为随着每个章节编号重新计数
+\DeclareCaptionLabelFormat{myfiglabel}{\thesection.#2} % 定义新的图标签格式
+% ==================================================================================
+
+
+% ==================================== 设置表格标题格式 ================================
+\DeclareCaptionFont{wuhaosongcu}{\fontsize{10.5pt}{15.75pt}\selectfont \song\bfseries} % 设置字体为宋体，五号
+\captionsetup[table]{
+    labelsep=quad, % 标签与标题内容之间的距离
+    font={ wuhaosongcu }, % 字体样式：小五、加粗、黑体
+    skip=1pt, % 标题与表格之间的距离
+    format=plain, % 标题的格式：不加冒号
+    singlelinecheck=false, % 标题超过一行时居左
+    justification=centering, % 标题居中
+}
+\renewcommand{\thetable}{\arabic{section}-\arabic{table}}   % 设置表格题目为“章节号-章节内序号”
+% ==================================================================================
+
+
+% ==================================== 公式格式设置 ==================================== 
+% 公式序号设置为(所在章节号-章节内编号)
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection-\arabic{equation}}
+\usepackage[italic]{mathastext} % 将数学字体设置为默认字体
+
+% ==================================================================================
+
+
+% ==================================== 代码格式设定 ====================================
+\usepackage{xcolor}
+\usepackage{listings}
+% 用来设置附录中代码的样式
+
+\lstset{
+    basicstyle          =   \sffamily,          % 基本代码风格
+    keywordstyle        =   \bfseries,          % 关键字风格
+    commentstyle        =   \rmfamily\itshape,  % 注释的风格，斜体
+    stringstyle         =   \ttfamily,  % 字符串风格
+    flexiblecolumns,                % 别问为什么，加上这个
+    numbers             =   left,   % 行号的位置在左边
+    showspaces          =   false,  % 是否显示空格，显示了有点乱，所以不现实了
+    numberstyle         =   \zihao{-5}\ttfamily,    % 行号的样式，小五号，tt等宽字体
+    showstringspaces    =   false,
+    captionpos          =   t,      % 这段代码的名字所呈现的位置，t指的是top上面
+    frame               =   lrtb,   % 显示边框
+}
+
+\lstdefinestyle{Python}{
+    language        =   Python, % 语言选Python
+    basicstyle      =   \zihao{-5}\ttfamily,
+    numberstyle     =   \zihao{-5}\ttfamily,
+    keywordstyle    =   \color{blue},
+    keywordstyle    =   [2] \color{teal},
+    stringstyle     =   \color{magenta},
+    commentstyle    =   \color{red}\ttfamily,
+    breaklines      =   true,   % 自动换行，建议不要写太长的行
+    columns         =   fixed,  % 如果不加这一句，字间距就不固定，很丑，必须加
+    basewidth       =   0.5em,
+}
+% ==================================================================================
